@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Signin page
+{% endblock title %}
+
+{% block page %}Singin Page
+{% endblock page %}
+
+{% block data %}Login
+{% endblock data  %}
+
+{% block body %}
+
+<div class="container my-3">
+{% if messages %}
+{% for message in messages %}
+
+<div class="alert alert-{{sta}}" role="alert">
+  <strong> {{message}} </strong> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+{% endfor %}
+{% endif %}
+
+<form method="post" action="">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="username">User Name</label>
+    <input type="text" class="form-control" name="username" id="username" placeholder="please enter your username">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" name="email" id="email" placeholder="please enter you email-add">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password again">
+  </div>
+
+  <div class="form-group">
+    <label for="password1">Password Again</label>
+    <input type="password" class="form-control" name="password1" id="password1" placeholder="please enter your password again">
+  </div>
+
+  <input class="btn btn-primary" type="submit" value="Singin">
+  <a class="btn btn-primary" href="/login" role="button">Login</a>
+ </form>
+ 
+
+</div>
+
+
+{% endblock body %}
